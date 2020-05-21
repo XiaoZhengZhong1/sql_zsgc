@@ -23,6 +23,12 @@ public class Zsgc {
         return all;
     }
 
+    @GetMapping("getOneData")
+    public Szygdl getOneData() {
+        List<Szygdl> all = szygdlRepository.findAll();
+        Szygdl szygdl = all.get(0);
+        return szygdl;
+    }
 
 }
 
