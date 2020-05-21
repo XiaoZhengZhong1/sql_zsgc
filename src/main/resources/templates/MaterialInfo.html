@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>物料单</title>
+    <style type="text/css">
+        table {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        table thead th {
+            border: 1px solid black;
+        }
+        table tbody td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<form action="/importData" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" ><br>
+    <input type="submit" value="上传">
+</form>
+<body>
+<button th:onclick="exportData()">导出</button>
+<button th:onclick="add()">新增</button>
+<button th:onclick="BatchDeleteById()">批量删除</button>
+<button th:onclick="exportData()">条码批量打印</button>
+
+
+
+</body>
+
+<body>
+<table cellpadding="0" cellspacing="0">
+    <thead>
+    <th>主键物料id</th>
+    <th>订单号</th>
+    <th>物料描述</th>
+    <th>序列号</th>
+    <th>物料号</th>
+    <th>条码</th>
+    <th>工厂英文名</th>
+    <th>工厂名称</th>
+    <th>用途</th>
+    <th>标识</th>
+    <th>用途说明</th>
+    <th>非标信息</th>
+    <th>创建人</th>
+    <th>创建日期</th>
+    <th>检查信息</th>
+    <th>备注</th>
+    <th>物料规格</th>
+    <th>物料规格数量</th>
+    <th>物料规格单位</th>
+    <th>订单日期</th>
+    <th>状态</th>
+    <th>打印数量</th>
+    <th>物料编辑</th>
+    <th>物料删除</th>
+    </thead>
+    <tr th:each="resultList:${resultList}">
+        <td id="d_id" th:text="${resultList.ppmaterialBarcoderId}"></td>
+        <td th:text="${resultList.pporderHId}"></td>
+        <td th:text="${resultList.materialDesc}"></td>
+        <td th:text="${resultList.serialNo}"></td>
+        <td th:text="${resultList.materialId}"></td>
+        <td th:text="${resultList.baccoderId}"></td>
+        <td th:text="${resultList.plantEnglishId}"></td>
+        <td th:text="${resultList.plantDesc}"></td>
+        <td th:text="${resultList.usageId}"></td>
+        <td th:text="${resultList.marginId}"></td>
+        <td th:text="${resultList.usageData}"></td>
+        <td th:text="${resultList.uustandardinfo}"></td>
+        <td th:text="${resultList.createUser}"></td>
+        <td th:text="${resultList.createDate}"></td>
+        <td th:text="${resultList.checkInfo}"></td>
+        <td th:text="${resultList.reserve}"></td>
+        <td th:text="${resultList.materialSpecial}"></td>
+        <td th:text="${resultList.cety}"></td>
+        <td th:text="${resultList.unit}"></td>
+        <td th:text="${resultList.pporderDate}"></td>
+        <td th:text="${resultList.sta}"></td>
+        <td th:text="${resultList.printCount}"></td>
+        <td>
+            <button th:onclick="editorInfo([[${resultList.ppmaterialBarcoderId}]])">编辑</button>
+            <script>
+                function editorInfo(id) {
+                    location.href = '/editorInfo?id=' + id;
+                }
+            </script>
+        </td>
+        <td>
+            <button th:onclick="deleteById([[${resultList.ppmaterialBarcoderId}]])">删除</button>
+            <script>
+                function deleteById(id) {
+                    location.href = '/deleteById?id=' + id;
+                }
+            </script>
+        </td>
+    </tr>
+</table>
+<script>
+    function exportData() {
+        location.href = '/exportData';
+    }
+    function add() {
+        location.href = '/add';
+    }
+    function BatchDeleteById() {
+        location.href = '/BatchDeleteById';
+    }
+</script>
+</body>
+</html>

@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="sql_zsgc" target="" />
+      <module name="sql_zsgc" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

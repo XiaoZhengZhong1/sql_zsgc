@@ -3,10 +3,13 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="file://E:/jdk1.8.0_101" />
       <root url="file://E:/jdk1.8.0_101/bin" />
+      <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7-sources.jar!/" />
     </SOURCES>
     <jarDirectory url="file://E:/jdk1.8.0_101" recursive="false" type="SOURCES" />
   </library>
