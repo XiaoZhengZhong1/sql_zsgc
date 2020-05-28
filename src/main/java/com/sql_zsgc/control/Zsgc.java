@@ -2,7 +2,6 @@
 package com.sql_zsgc.control;
 
 import com.sql_zsgc.Repository.SzygdlRepository;
-import com.sql_zsgc.Repository.SzygdlRepository2;
 import com.sql_zsgc.pojo.Szygdl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -17,10 +16,6 @@ public class Zsgc {
 
     @Autowired
     private SzygdlRepository szygdlRepository;
-
-    @Autowired
-    private SzygdlRepository2 szygdlRepository2;
-
 
     @GetMapping("getData")
     public List<Szygdl> getData() {
@@ -39,7 +34,7 @@ public class Zsgc {
 
     @GetMapping("getOneData2")
     public Szygdl getOneData2(int id) {
-        Szygdl material = szygdlRepository2.findMaterial(id);
+        Szygdl material = szygdlRepository.findMaterial(id);
         return material;
     }
 

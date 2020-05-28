@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>物料单编辑回显</title>
+    <style type="text/css">
+        table {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        table thead th {
+            border: 1px solid black;
+        }
+        table tbody td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0">
+    <tbody>
+</table>
+<form th:action="@{/editorM_Up}" th:object="${editorAfterInfo}" method="post">
+    物料主键:  <input type="text" th:field="*{ppmaterialBarcoderId}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    物料号:    <input type="text"  th:field="*{materialId}"><br/>
+    订单号:    <input type="text" th:field="*{pporderHId}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    物料描述:  <input type="text"  th:field="*{materialDesc}" ><br/>
+    序列号:    <input type="text" th:field="*{serialNo}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    检查信息:  <input type="text" th:field="*{checkInfo}"><br/>
+    条码:      <input type="text" th:field="*{baccoderId}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    非标信息:   <input type="text" th:field="*{uustandardinfo}"><br/>
+    用途:      <input type="text" th:field="*{usageId}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    标识:      <input type="text" th:field="*{marginId}"><br/>
+    用途说明:   <input type="text" th:field="*{usageData}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    工厂名称:   <input type="text" th:field="*{plantDesc}">&nbsp&nbsp<br/>
+    创建人:     <input type="text" th:field="*{createUser}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    工厂英文名:  <input type="text" th:field="*{plantEnglishId}"><br/>
+    备注:       <input type="text" th:field="*{reserve}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    物料规格:    <input type="text" th:field="*{materialSpecial}"><br/>
+    物料规格数量: <input type="text" th:field="*{cety}">&nbsp&nbsp
+    物料规格单位: <input type="text" th:field="*{unit}"><br/>
+    状态:       <input type="text" th:field="*{sta}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    打印数量:   <input type="text" th:field="*{printCount}"><br/>
+    <input type="submit">
+</form>
+
+</body>
+</html>

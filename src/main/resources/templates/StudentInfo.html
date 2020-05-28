@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>学生表</title>
+    <style type="text/css">
+        table {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        table thead th {
+            border: 1px solid black;
+        }
+        table tbody td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<button th:onclick="add()">新增</button>
+<button th:onclick="BatchDeleteById()">批量删除</button>
+</body>
+
+<body>
+<table cellpadding="0" cellspacing="0">
+    <thead>
+    <th>学生id</th>
+    <th>姓名</th>
+    <th>性别</th>
+    <th>年龄</th>
+    <th>地址</th>
+    <th>分数</th>
+    <th>班级id</th>
+    <th>出生日期</th>
+    </thead>
+    <tr th:each="resultList:${resultList}">
+        <td id="d_id" th:text="${resultList.stuId}"></td>
+        <td th:text="${resultList.sname}"></td>
+        <td th:text="${resultList.six}"></td>
+        <td th:text="${resultList.age}"></td>
+        <td th:text="${resultList.address}"></td>
+        <td th:text="${resultList.score}"></td>
+        <td th:text="${resultList.claId}"></td>
+        <td th:text="${resultList.birthday}"></td>
+        <td>
+            <button th:onclick="editorInfo([[${resultList.stuId}]])">编辑</button>
+            <script>
+                function editorInfo(id) {
+                    location.href = '/editorInfo?id=' + id;
+                }
+            </script>
+        </td>
+        <td>
+            <button th:onclick="deleteById([[${resultList.stuId}]])">删除</button>
+            <script>
+                function deleteById(id) {
+                    location.href = '/deleteById?id=' + id;
+                }
+            </script>
+        </td>
+    </tr>
+</table>
+<script>
+    function add() {
+        location.href = '/add';
+    }
+    function BatchDeleteById() {
+        location.href = '/BatchDeleteById';
+    }
+</script>
+</body>
+</html>
