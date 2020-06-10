@@ -23,5 +23,9 @@ public interface StudentR
 
         @Query(nativeQuery = true,value = "select * from(select * from student t order by stu_id desc) where rownum=1")
         Student getLast();
+
+
+
+
 }
 
