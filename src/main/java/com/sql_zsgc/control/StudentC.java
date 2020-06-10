@@ -28,4 +28,10 @@ public class StudentC {
         return one;
     }
 
+    @GetMapping("saveOne")
+    public void saveOne(Student student){
+         studentR.save(student);
+
+    }
+
 }
